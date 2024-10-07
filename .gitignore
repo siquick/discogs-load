@@ -14,3 +14,5 @@ Cargo.lock
 
 # General
 .DS_store
+
+*.xml.gz

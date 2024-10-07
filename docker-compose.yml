@@ -1,8 +1,8 @@
-version: '3'
+version: "3"
 
 services:
   postgres:
-    image: postgres:14
+    image: postgres:16
     ports:
       - 5432:5432
     environment:
@@ -15,6 +15,9 @@ services:
       timeout: 2s
       retries: 60
       start_period: 2s
+    volumes:
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - ./sql/tables:/docker-entrypoint-initdb.d/tables
 
   discogs-load:
     build:
